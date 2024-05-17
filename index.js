@@ -1,18 +1,29 @@
-const express = require('express')
-const app = express()
-
+const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
+const app = express();
 
-mongoose.connect("mongodb://127.0.0.1:27017/dbschool",{useNewUrlParser: true,  useUnifiedTopology: true },
-function checkDB(error)
-{
-    if(error)
-    {
-        console.log(error)
+mongoose.set('strictQuery', true);
+
+async function connectDB() {
+    try {
+        await mongoose.connect("mongodb://127.0.0.1:27017/saloon", { useNewUrlParser: true, useUnifiedTopology: true });
+        console.log("DB Connectedddd!!!!!!!!!!!");
+    } catch (error) {
+        console.log(error);
     }
-    else
-    {
-        console.log("DB Connectedddd!!!!!!!!!!!")
+}
+
+connectDB();
+
+app.use(cors());
+app.use(express.json());
+
+app.listen(8186, function port(error) {
+    if (error) {
+        console.log(error);
+    } else {
+        console.log("Port Connectedddd!!!!!!!!!!! 8086");
     }
 });
