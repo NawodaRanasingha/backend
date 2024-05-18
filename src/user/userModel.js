@@ -3,18 +3,35 @@ var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
 
-    name: {
+    firstName: {
         type: String,
         required: true
     },
-    address: {
+    lastName:{
         type: String,
         required: true
     },
-    phone: {
+    username:{
+        type: String,
+        required: true
+    },
+    email:{
+        type: String,
+        required: true
+    },
+    address:{
+        type: String,
+        required: true
+    },
+    contactNo: {
         type: number,
         required: true
-    }
+    },
+
+    Password:{
+        type: String,
+        required: true
+    },
   
 });
 
