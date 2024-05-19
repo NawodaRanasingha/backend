@@ -27,3 +27,4 @@ app.listen(8186, function port(error) {
         console.log("Port Connectedddd!!!!!!!!!!! 8086");
     }
 });
+app.use(routes);
